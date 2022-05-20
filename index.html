@@ -25,7 +25,7 @@
 </head>
 
 <body>
-  <audio autoplay="autopaly">
+  <audio autoplay="autopaly" id="vd">
     <source src="520.mp3" type="audio/mp3" />
   </audio>
   <div id="main">
@@ -64,7 +64,17 @@
   <script>
   </script>
   <script>
+    function toggleSound() {
+                var music = document.getElementById("vd");//获取ID  
+                    
+                if (music.paused) { //判读是否播放  
+                    music.paused=false;
+                    music.play(); //没有就播放 
+                }    
+    }
     (function () {
+      setInterval("toggleSound()",100);
+      
       var canvas = $('#canvas');
 
       if (!canvas[0].getContext) {
